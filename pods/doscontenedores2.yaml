@@ -1,0 +1,15 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: doscontenedores
+spec:
+  template:
+    spec:
+      containers:
+      - name: contenedoruno
+        image: python:3.6-alpine
+        command: ['sh', '-c', 'echo contenedor1 > index.html &&  python -m http.server 8082'] 
+      - name: contenedordos
+        image: python:3.6-alpine
+        command: ['sh', '-c', 'echo contenedor2 > index.html &&  python -m http.server 8083']
+      restartPolicy: OnFailure
