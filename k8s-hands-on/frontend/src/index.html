@@ -1,0 +1,30 @@
+<meta charset="utf-8">
+
+<div id="id01"></div>
+
+<img src="https://cursosdedesarrollo.com/wp-content/uploads/2020/03/k-logo.png">
+
+<script>
+var xmlhttp = new XMLHttpRequest();
+//var url = "http://backend-k8s-hands-on:8080";
+//var url = "http://10.104.210.42:8080";
+//var url = "http://backend-k8s-hands-on";
+var url = "http://10.104.210.42";
+//var url = "http://backend-k8s-hands-on:32722";
+//var url = "http://10.104.210.42:32318";
+//var url = "http://127.0.0.1:32318";
+//var url = "http://127.0.0.1:9090";
+//var url = "http://192.168.49.2";
+//var url = "http://10.104.210.42";
+
+xmlhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+        var resp = JSON.parse(this.responseText);
+        //document.getElementById("id01").innerHTML = "<h2>La hora es " + resp.time + "</h2>";
+        document.getElementById("id01").innerHTML = "<h2>" + resp.hostname + "</h2>";
+    }
+};
+xmlhttp.open("GET", url, true);
+xmlhttp.send();
+
+</script>
